@@ -33,10 +33,10 @@ public class Main {
 
 
 class PersonDeserializer implements com.google.gson.JsonDeserializer<Person> {
-	public Person deserialize(com.google.gson.JsonElement je, java.lang.reflect.Type type, com.google.gson.JsonDeserializationContext jdc) throws com.google.gson.JsonParseException {
-		final com.google.gson.JsonObject jo = je.getAsJsonObject();
-		final String name = jo.getAsJsonPrimitive("NAME").getAsString();
-		if (jo.getAsJsonPrimitive("female").getAsBoolean()){
+	public Person deserialize(com.google.gson.JsonElement jsonEl, java.lang.reflect.Type type, com.google.gson.JsonDeserializationContext jdContext) throws com.google.gson.JsonParseException {
+		final com.google.gson.JsonObject jsonObj = jsonEl.getAsJsonObject();
+		final String name = jsonObj.getAsJsonPrimitive("NAME").getAsString();
+		if (jsonObj.getAsJsonPrimitive("female").getAsBoolean()){
 			return new Lass(name);
 		} else {
 			return new Lad(name);
